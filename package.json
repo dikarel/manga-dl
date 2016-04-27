@@ -1,0 +1,27 @@
+{
+  "name": "manga-dl",
+  "version": "1.0.0",
+  "description": "Download manga via the command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dikarel/manga-dl.git"
+  },
+  "keywords": [
+    "manga",
+    "download",
+    "dl",
+    "comic",
+    "webcomic",
+    "downloader"
+  ],
+  "author": "Darius I. Karel <me@dikarel.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dikarel/manga-dl/issues"
+  },
+  "homepage": "https://github.com/dikarel/manga-dl#readme"
+}
