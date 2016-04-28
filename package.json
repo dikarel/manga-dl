@@ -1,6 +1,6 @@
 {
   "name": "manga-dl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download manga via the command line",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/dikarel/manga-dl/issues"
   },
-  "homepage": "https://github.com/dikarel/manga-dl#readme"
+  "homepage": "https://github.com/dikarel/manga-dl#readme",
+  "dependencies": {
+    "fast-html-parser": "^1.0.1",
+    "text-table": "^0.2.0",
+    "unirest": "^0.4.2"
+  }
 }

@@ -1,29 +1,26 @@
 process.title = "manga-dl";
 
-var getUserIntent = require("./util/getUserIntent");
-var intent = getUserIntent(process.argv);
-var assert = require("assert");
+// Figure out intent
+try {
+  var intent = require("./util/getUserIntent")(process.argv);
 
-var commands = {
-  help: require("./commands/help"),
-  search: require("./commands/search")
-};
-
-if (intent) {
-  if (intent.error) {
-    // Valid command, bad arguments
-    console.error();
-    console.error("ERROR: " + intent.error);
-    console.error();
-    process.exit(1);
-  } else {
-    // Valid command and arguments
-    var command = commands[intent.command];
-    assert(command, "Couldn't find command function");
-    command(intent);
+  if (!intent) {
+    require("./commands/help")(function() {
+      process.exit(1);
+    });
   }
-} else {
-  // Invalid command
-  commands.help();
+} catch (error) {
+  console.error();
+  console.error("ERROR: " + error.message);
+  console.error();
   process.exit(1);
 }
+
+// Execute command
+require("./commands/" + intent.command)(intent, function(error) {
+  if (!error) return;
+
+  console.error();
+  console.error("ERROR: " + error.message);
+  process.exit(1);
+});

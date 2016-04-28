@@ -7,6 +7,9 @@ Download manga via the command line
 3. Fast
 
 ## Roadmap
-1. Search manga
-2. Download manga as directory
-3. Download manga as mobi
+1. Get chapters list
+2. Download chapter as directory
+3. Support partial downloads
+
+## Ideas
+stemming, popularity, exactness, scoring, aliases, pdf, mobi, epub, html, collection, cache, zip, directory, chapter name, advanced search, multiple sites, languages, nsfw, tags, categories, similar

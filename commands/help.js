@@ -1,7 +1,7 @@
 module.exports = help;
 
 // UNSURE: Should this be to stdout instead?
-function help() {
+function help(intent, done) {
   console.error();
   console.error("Usage: manga-dl <command>");
   console.error();
@@ -12,4 +12,6 @@ function help() {
   console.error("Examples:");
   console.error("  manga-dl search one piece  Search for One Piece manga");
   console.error();
+
+  done();
 }
