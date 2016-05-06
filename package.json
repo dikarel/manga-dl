@@ -37,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/dikarel/manga-dl/issues"
   },
-  "homepage": "https://github.com/dikarel/manga-dl#readme"
+  "homepage": "https://github.com/dikarel/manga-dl#readme",
+  "preferGlobal": true,
+  "bin": {
+    "manga-dl": "./bin/manga-dl"
+  }
 }
