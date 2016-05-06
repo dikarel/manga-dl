@@ -11,8 +11,8 @@
     "better-assert": "^1.0.2"
   },
   "name": "manga-dl",
-  "version": "2.0.0",
-  "description": "Download manga via command line; supports [mangareader.net](http://www.mangareader.net)",
+  "version": "2.0.2",
+  "description": "Download manga via command line; supports mangareader.net",
   "main": "index.js",
   "directories": {
     "test": "tests"
