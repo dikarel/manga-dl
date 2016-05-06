@@ -1,5 +1,5 @@
 # manga-dl
-Download manga via command line; supports [mangareader.net](http://www.mangareader.net)
+Download manga via command line; supports mangareader.net
 
 ## Install
     $ npm install -g manga-dl
