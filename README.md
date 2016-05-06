@@ -5,7 +5,7 @@ Download manga via command line; supports [mangareader.net](http://www.mangaread
     $ npm install -g manga-dl
 
 ## Download manga
-    $ manga-dl http://www.mangareader.net/shokugeki-no-soma/165
+    $ manga-dl http://www.mangareader.net/world-trigger/141
     Reading http://www.mangareader.net/world-trigger/141...
     Downloading World Trigger ch. 141 into World Trigger/141... (19 pages)
     Done
