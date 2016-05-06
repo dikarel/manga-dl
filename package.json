@@ -1,10 +1,24 @@
 {
+  "dependencies": {
+    "async": "^2.0.0-rc.4",
+    "commander": "^2.9.0",
+    "fast-html-parser": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "needle": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.1",
+    "better-assert": "^1.0.2"
+  },
   "name": "manga-dl",
-  "version": "1.0.1",
-  "description": "Download manga via the command line",
+  "version": "2.0.0",
+  "description": "Download manga via command line; supports [mangareader.net](http://www.mangareader.net)",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodeunit tests/*.js --reporter minimal"
   },
   "repository": {
     "type": "git",
@@ -13,20 +27,15 @@
   "keywords": [
     "manga",
     "download",
-    "dl",
     "comic",
     "webcomic",
-    "downloader"
+    "downloader",
+    "dl"
   ],
   "author": "Darius I. Karel <me@dikarel.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dikarel/manga-dl/issues"
   },
-  "homepage": "https://github.com/dikarel/manga-dl#readme",
-  "dependencies": {
-    "fast-html-parser": "^1.0.1",
-    "text-table": "^0.2.0",
-    "unirest": "^0.4.2"
-  }
+  "homepage": "https://github.com/dikarel/manga-dl#readme"
 }
