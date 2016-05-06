@@ -11,6 +11,7 @@ exports["mangareader accepts valid reader URLs"] = (test) => {
   assert(mangareader.acceptsUrl("http://www.mangareader.net/space-time-prisoner/1"));
   assert(mangareader.acceptsUrl("http://www.mangareader.net/space-time-prisoner/19"));
   assert(mangareader.acceptsUrl("http://www.mangareader.net/space-time-prisoner/19/2"));
+  assert(mangareader.acceptsUrl("http://www.mangareader.net/space-time-prisoner/193/255"));
   test.done();
 };
 

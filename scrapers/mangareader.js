@@ -1,9 +1,6 @@
-var urlRegex = /^http\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/[\d]+(\/[\d+])?$/i;
-var format = require("util").format;
-
 module.exports = {
   acceptsUrl: (url) => {
-    return !!url.match(urlRegex);
+    return !!url.match(/^http\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i);
   },
 
   seriesName: (dom) => {

@@ -10,7 +10,8 @@ var eachLimit = require("async/eachLimit");
 
 // Scrapers collection
 var scrapers = [
-  require("./scrapers/mangareader")
+  require("./scrapers/mangareader"),
+  require("./scrapers/mangafox")
 ];
 
 // Program metadata
@@ -67,7 +68,7 @@ eachSeries(urlInfos, (urlInfo, done) => waterfall([
     var chapterNumber = downloads[0].chapterNumber;
     var localDirname = downloads[0].localDirname;
 
-    console.log(format("Downloading %s ch. %s into %s...", seriesName, chapterNumber, localDirname));
+    console.log(format("Downloading '%s' ch. %s into '%s'...", seriesName, chapterNumber, localDirname));
     eachLimit(downloads, program.parallelism, (dl, done) => downloadPage(dl, urlInfo.scraper, done), done);
   }
 

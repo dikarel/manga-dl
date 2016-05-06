@@ -1,5 +1,5 @@
 # manga-dl
-Download manga via command line; supports mangareader.net
+Download manga via command line; supports mangafox.me and mangareader.net
 
 ## Install
     $ npm install -g manga-dl
@@ -21,6 +21,10 @@ Note: You must use the URL of an online viewer (e.g. [http://www.mangareader.net
     Reading http://www.mangareader.net/world-trigger/140...
     Downloading World Trigger ch. 140 into World Trigger/140... (19 pages)
     Done
+
+## Supported manga URLs
+- mangafox.me (e.g. http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html)
+- mangareader.net (e.g. http://www.mangareader.net/world-trigger/141)
 
 Note: You must use the URL of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142))
 
