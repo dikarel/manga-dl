@@ -18,7 +18,7 @@ var scrapers = [
 program
   .version(package.version)
   .description(package.description)
-  .usage("<online reader URL>")
+  .usage("<reader URL...>")
   .parse(process.argv);
 
 // HACK: Hard-code for now
@@ -58,7 +58,7 @@ eachSeries(urlInfos, (urlInfo, done) => waterfall([
 
   // Plan downloads
   (done) => {
-    console.log(format("Reading %s...", urlInfo.url));
+    console.log(format("Extracting info from %s...", urlInfo.url));
     planDownloads(urlInfo.url, urlInfo.scraper, done);
   },
 
@@ -66,9 +66,8 @@ eachSeries(urlInfos, (urlInfo, done) => waterfall([
   (downloads, done) => {
     var seriesName = downloads[0].seriesName;
     var chapterNumber = downloads[0].chapterNumber;
-    var localDirname = downloads[0].localDirname;
 
-    console.log(format("Downloading '%s' ch. %s into '%s'...", seriesName, chapterNumber, localDirname));
+    console.log(format("Downloading %s chapter %s...", seriesName, chapterNumber));
     eachLimit(downloads, program.parallelism, (dl, done) => downloadPage(dl, urlInfo.scraper, done), done);
   }
 
@@ -80,5 +79,5 @@ function done(err) {
     process.exit(1);
   }
 
-  console.log("Done");
+  console.log("Done. Check your local directory for downloaded files");
 }

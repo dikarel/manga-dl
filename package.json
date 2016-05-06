@@ -1,8 +1,8 @@
 {
   "name": "manga-dl",
-  "version": "2.1.3",
-  "description": "Download manga via command line; supports mangafox.me and mangareader.net",
-  "keywords": ["manga", "download", "comic", "webcomic", "downloader", "dl"],
+  "version": "2.1.4",
+  "description": "Download manga via command line; supports mangafox and mangareader",
+  "keywords": ["manga", "download", "comic", "webcomic", "downloader", "dl", "mangareader", "mangafox"],
   "author": "Darius I. Karel <me@dikarel.com>",
 
   "dependencies": {

@@ -1,32 +1,36 @@
 # manga-dl
-Download manga via command line; supports mangafox.me and mangareader.net
+Download manga from popular scanlation sites via command line
 
 ## Install
+Download from [npm](npmjs.com/package/manga-dl).
+
     $ npm install -g manga-dl
 
-## Download manga
+## Download a single chapter
+Type the command `manga-dl <reader url>`. A local directory will be created, and pages will be downloaded into that directory.
+
+Note that the URL has to be that of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142)); this is the URL where you actually see and flip through the pages.
+
     $ manga-dl http://www.mangareader.net/world-trigger/141
-    Reading http://www.mangareader.net/world-trigger/141...
-    Downloading World Trigger ch. 141 into World Trigger/141... (19 pages)
-    Done
+    Extracting info from http://www.mangareader.net/world-trigger/141...
+    Downloading World Trigger chapter 141... (19 pages)
+    Done. Check your local directory for downloaded files
 
-Note: You must use the URL of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142))
+### Supported sites
+1. mangafox.me ([sample url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
+2. mangareader.net ([sample url](http://www.mangareader.net/world-trigger/141))
 
-## Download multiple manga
+## Download multiple chapters
+Type the command `manga-dl <reader url 1> <reader url 2> ...`. Chapters will be downloaded in the specified order.
+
     $ manga-dl http://www.mangareader.net/world-trigger/141 http://www.mangareader.net/world-trigger/142 http://www.mangareader.net/world-trigger/140
-    Reading http://www.mangareader.net/world-trigger/141...
-    Downloading World Trigger ch. 141 into World Trigger/141... (19 pages)
-    Reading http://www.mangareader.net/world-trigger/142...
-    Downloading World Trigger ch. 142 into World Trigger/142... (19 pages)
-    Reading http://www.mangareader.net/world-trigger/140...
-    Downloading World Trigger ch. 140 into World Trigger/140... (19 pages)
-    Done
-
-## Supported manga URLs
-- mangafox.me (e.g. http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html)
-- mangareader.net (e.g. http://www.mangareader.net/world-trigger/141)
-
-Note: You must use the URL of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142))
+    Extracting info from http://www.mangareader.net/world-trigger/141...
+    Downloading World Trigger chapter 141... (19 pages)
+    Extracting info from http://www.mangareader.net/world-trigger/142...
+    Downloading World Trigger chapter 142... (19 pages)
+    Extracting info from http://www.mangareader.net/world-trigger/140...
+    Downloading World Trigger chapter 140... (19 pages)
+    Done. Check your local directory for downloaded files
 
 ## License
 
