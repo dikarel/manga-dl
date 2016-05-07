@@ -2,28 +2,31 @@
 Download manga from popular scanlation sites via command line
 
 ## Install
-Download from [npm](npmjs.com/package/manga-dl).
+Download from [npm](http://www.npmjs.com/package/manga-dl).
 
     $ npm install -g manga-dl
 
 ## Download a single chapter
 Type the command `manga-dl <reader url>`. A local directory will be created, and pages will be downloaded into that directory.
 
-Note that the URL has to be that of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142)); this is the URL where you actually see and flip through the pages.
-
     $ manga-dl http://www.mangareader.net/world-trigger/141
+
     Extracting info from http://www.mangareader.net/world-trigger/141...
     Downloading World Trigger chapter 141... (19 pages)
     Done. Check your local directory for downloaded files
 
+Note that the URL has to be that of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142)); this is the URL where you actually see and flip through the pages.
+
 ### Supported sites
-1. mangafox.me ([sample url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
-2. mangareader.net ([sample url](http://www.mangareader.net/world-trigger/141))
+1. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
+2. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
+3. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
 
 ## Download multiple chapters
 Type the command `manga-dl <reader url 1> <reader url 2> ...`. Chapters will be downloaded in the specified order.
 
     $ manga-dl http://www.mangareader.net/world-trigger/141 http://www.mangareader.net/world-trigger/142 http://www.mangareader.net/world-trigger/140
+
     Extracting info from http://www.mangareader.net/world-trigger/141...
     Downloading World Trigger chapter 141... (19 pages)
     Extracting info from http://www.mangareader.net/world-trigger/142...

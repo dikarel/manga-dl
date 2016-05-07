@@ -1,4 +1,8 @@
 module.exports = {
+  domain: () => {
+    return "mangafox.me";
+  },
+
   acceptsUrl: url => {
     return !!url.match(/^http\:\/\/(www\.)?mangafox\.me\/manga\/([a-z0-9_]+)(\/v\d+)?\/c\d+\/?(\d+\.html)?$/i);
   },

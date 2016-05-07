@@ -1,16 +1,25 @@
 {
   "name": "manga-dl",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Download manga from popular scanlation sites via command line",
-  "keywords": ["manga", "download", "comic", "webcomic", "downloader", "dl", "mangareader", "mangafox"],
+  "keywords": [
+    "manga",
+    "download",
+    "comic",
+    "webcomic",
+    "downloader",
+    "dl",
+    "mangareader",
+    "mangafox"
+  ],
   "author": "Darius I. Karel <me@dikarel.com>",
-
   "dependencies": {
-    "async": "^2.0.0-rc.4",
+    "bluebird": "^3.3.5",
     "commander": "^2.9.0",
     "fast-html-parser": "^1.0.1",
     "mkdirp": "^0.5.1",
-    "needle": "^1.0.0"
+    "needle": "^1.0.0",
+    "tmp": "0.0.28"
   },
   "devDependencies": {
     "nodeunit": "^0.9.1",

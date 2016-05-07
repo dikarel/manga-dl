@@ -1,4 +1,8 @@
 module.exports = {
+  domain: () => {
+    return "mangareader.net";
+  },
+
   acceptsUrl: (url) => {
     return !!url.match(/^http\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i);
   },
