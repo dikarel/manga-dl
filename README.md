@@ -18,9 +18,10 @@ Type the command `manga-dl <reader url>`. A local directory will be created, and
 Note that the URL has to be that of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142)); this is the URL where you actually see and flip through the pages.
 
 ### Supported sites
-1. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
-2. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
-3. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
+1. dynasty-scans.com ([sample reader url](http://dynasty-scans.com/chapters/girls_monochrome_ch01#3))
+2. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
+3. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
+4. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
 
 ## Download multiple chapters
 Type the command `manga-dl <reader url 1> <reader url 2> ...`. Chapters will be downloaded in the specified order.
