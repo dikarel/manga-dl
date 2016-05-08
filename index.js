@@ -1,11 +1,11 @@
-var importScrapers = require("./actions/program/importScrapers");
-var planJobs = require("./actions/program/planJobs");
-var validateJobs = require("./actions/program/validateJobs");
-var executeJobs = require("./actions/program/executeJobs");
-var handleError = require("./actions/program/handleError");
-var package = require("./package.json");
-var program = require("commander");
-var needle = require("needle");
+const importScrapers = require("./actions/program/importScrapers");
+const planJobs = require("./actions/program/planJobs");
+const validateJobs = require("./actions/program/validateJobs");
+const executeJobs = require("./actions/program/executeJobs");
+const handleError = require("./actions/program/handleError");
+const package = require("./package.json");
+const program = require("commander");
+const needle = require("needle");
 
 // Metadata
 program

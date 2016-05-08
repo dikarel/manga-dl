@@ -1,6 +1,6 @@
 {
   "name": "manga-dl",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Download manga from popular scanlation sites via command line",
   "keywords": [
     "manga",
@@ -32,7 +32,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nodeunit tests/*.js --reporter minimal"
+    "test": "nodeunit specs/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,37 @@
+{
+  "shouldAcceptUrls": [
+    "http://dynasty-scans.com/chapters/a_room_for_two_ch05#11",
+    "http://dynasty-scans.com/chapters/a_room_for_two_ch05",
+    "http://dynasty-scans.com/chapters/mahou_shoujo_lyrical_nanoha_innocent_intermission_02#9"
+  ],
+
+  "shouldRejectUrls": [
+    "http://dynasty-scans.com/chapters",
+    "http://dynasty-scans.com/series",
+    "http://dynasty-scans.com/series/girls_monochrome"
+  ],
+
+  "shouldBeAjax": true,
+
+  "shouldLoad": [{
+    "source": "dynastyscans-1.html",
+    "seriesName": "A Room For Two",
+    "chapterNumber": 6,
+    "pageUrls": 0,
+    "loadImageUrls": 1,
+    "firstPageUrl": null,
+    "lastPageUrl": null,
+    "firstImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/674/01.png",
+    "lastImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/674/12.png"
+  }, {
+    "source": "dynastyscans-2.html",
+    "seriesName": "NAMANIEDO-NATSU",
+    "chapterNumber": -1,
+    "pageUrls": 0,
+    "loadImageUrls": 1,
+    "firstPageUrl": null,
+    "lastPageUrl": null,
+    "firstImageUrl": "http://z.mfcdn.net/store/manga/8715/07-072.0/compressed/q001.jpg",
+    "lastImageUrl": "http://z.mfcdn.net/store/manga/8715/07-072.0/compressed/q001.jpg"
+  }]
+}
