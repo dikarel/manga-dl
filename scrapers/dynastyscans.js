@@ -9,10 +9,12 @@ module.exports = {
     url.match(/^http\:\/\/(www\.)?dynasty-scans\.com\/chapters\/([a-z0-9_]+)(#.+)?$/i),
 
   seriesName: (dom) =>
-    dom.querySelector("#chapter-title").text.replace(/ ch\d+ by .+$/, ""),
+    dom.querySelector("#chapter-title").text.replace(/\s+(ch\d+\s+)?by.+$/, ""),
 
-  chapterNumber: (dom) =>
-    parseInt(dom.querySelector("#chapter-title").text.match(/ch(\d+) by .+$/)[1]),
+  chapterNumber: (dom) => {
+    var chapterNumberMatch = dom.querySelector("#chapter-title").text.match(/ch(\d+)\s+by\s+.+$/);
+    return (chapterNumberMatch) ? parseInt(chapterNumberMatch[1]) : -1;
+  },
 
   pageUrls: (dom) =>
     [],

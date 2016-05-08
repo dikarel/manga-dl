@@ -1,4 +1,5 @@
 var sampleDom = require("./helpers/getSampleDom")("dynastyscans");
+var sampleDom2 = require("./helpers/getSampleDom")("dynastyscans-2");
 var dynastyscans = require("../scrapers/dynastyscans");
 var assert = require("better-assert");
 
@@ -22,11 +23,17 @@ exports["dynastyscans uses an ajax reader"] = (test) => {
 
 exports["dynastyscans gets series name"] = (test) => {
   assert(dynastyscans.seriesName(sampleDom) == "A Room For Two");
+  assert(dynastyscans.seriesName(sampleDom2) === "NAMANIEDO-NATSU");
   test.done();
 };
 
 exports["dynastyscans gets chapter number"] = (test) => {
   assert(dynastyscans.chapterNumber(sampleDom) === 6);
+  test.done();
+};
+
+exports["dynastyscans returns chapter number -1 if there aren't any chaptering"] = (test) => {
+  assert(dynastyscans.chapterNumber(sampleDom2) === -1);
   test.done();
 };
 

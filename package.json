@@ -1,6 +1,6 @@
 {
   "name": "manga-dl",
-  "version": "2.1.5",
+  "version": "2.2.5",
   "description": "Download manga from popular scanlation sites via command line",
   "keywords": [
     "manga",
@@ -10,7 +10,9 @@
     "downloader",
     "dl",
     "mangareader",
-    "mangafox"
+    "mangafox",
+    "dynasty",
+    "scans"
   ],
   "author": "Darius I. Karel <me@dikarel.com>",
   "dependencies": {

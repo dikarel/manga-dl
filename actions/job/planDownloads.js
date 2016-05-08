@@ -29,7 +29,8 @@ function getImageUrlFromPageReader(index) {
 }
 
 function prepareLocalPath(index, extname) {
-  const localDir = join(this.seriesName, this.chapterNumber.toString());
+  const localDir =
+    (this.chapterNumber == -1 ? this.seriesName : join(this.seriesName, this.chapterNumber.toString()));
 
   return mkdirp(localDir)
     .then(() =>

@@ -9,7 +9,11 @@ const httpGet = Promise.promisify(needle.get);
 
 // Download pages; stores download paths in job.localPagePaths
 module.exports = (job) => {
-  console.log(format("Downloading %s chapter %s... (%s pages)", job.seriesName, job.chapterNumber, job.totalPages));
+  if (job.chapterNumber == -1) {
+    console.log(format("Downloading %s... (%s pages)", job.seriesName, job.totalPages));
+  } else {
+    console.log(format("Downloading %s chapter %s... (%s pages)", job.seriesName, job.chapterNumber, job.totalPages));
+  }
 
   return Promise.each(zeroTo(job.totalPages - 1), (index) =>
       job.getImageUrl(index)
