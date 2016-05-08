@@ -1,19 +1,18 @@
 module.exports = {
-  domain: () => {
-    return "mangafox.me";
-  },
+  domain: () =>
+    "mangafox.me",
 
-  acceptsUrl: url => {
-    return !!url.match(/^http\:\/\/(www\.)?mangafox\.me\/manga\/([a-z0-9_]+)(\/v\d+)?\/c\d+\/?(\d+\.html)?$/i);
-  },
+  isAjax: () =>
+    false,
 
-  seriesName: dom => {
-    return dom.querySelector("#series h1").text.replace(/\s+\d+$/, "");
-  },
+  acceptsUrl: url =>
+    !!url.match(/^http\:\/\/(www\.)?mangafox\.me\/manga\/([a-z0-9_]+)(\/v\d+)?\/c\d+\/?(\d+\.html)?$/i),
 
-  chapterNumber: dom => {
-    return parseInt(dom.querySelector("#series h1").text.match(/\d+$/)[0]);
-  },
+  seriesName: dom =>
+    dom.querySelector("#series h1").text.replace(/\s+\d+$/, ""),
+
+  chapterNumber: dom =>
+    parseInt(dom.querySelector("#series h1").text.match(/\d+$/)[0]),
 
   pageUrls: dom => {
     var urlTemplate = dom.querySelector("#tip a").attributes.href.replace(/\d+\.html$/, "");
@@ -24,7 +23,6 @@ module.exports = {
       .map(o => urlTemplate + o.attributes.value + ".html");
   },
 
-  imageUrl: (dom) => {
-    return dom.querySelector("#viewer img").attributes.src;
-  }
+  imageUrls: (dom) =>
+    [dom.querySelector("#viewer img").attributes.src]
 };

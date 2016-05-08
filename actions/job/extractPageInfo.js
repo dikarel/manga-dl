@@ -1,8 +1,8 @@
-var parseHtml = require("fast-html-parser").parse;
-var format = require("util").format;
-var Promise = require("bluebird");
+const parseHtml = require("fast-html-parser").parse;
+const format = require("util").format;
+const Promise = require("bluebird");
 
-var httpGet = Promise.promisify(require("needle").get);
+const httpGet = Promise.promisify(require("needle").get);
 
 // Get chapter metadata; places them in job.seriesName, job.chapterNumber, job.pageUrls
 module.exports = (job) => {
@@ -12,10 +12,15 @@ module.exports = (job) => {
   return httpGet(job.url).then((res) => {
     if (res.statusCode != 200) throw new Error(format("Failed to download %s (HTTP %s)", job.url, res.statusCode));
 
-    var dom = parseHtml(res.body);
+    const dom = parseHtml(res.body, {
+      script: true
+    });
+
     job.seriesName = job.scraper.seriesName(dom);
     job.chapterNumber = job.scraper.chapterNumber(dom);
+    job.imageUrls = job.scraper.imageUrls(dom);
     job.pageUrls = job.scraper.pageUrls(dom);
+    job.isAjax = job.scraper.isAjax(dom);
 
     return job;
   });

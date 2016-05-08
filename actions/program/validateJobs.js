@@ -1,5 +1,5 @@
-var package = require("../../package");
-var format = require("util").format;
+const package = require("../../package");
+const format = require("util").format;
 
 // Validate jobs stored inside program.jobs; if there' anything wrong, display error messages and quit
 module.exports = (program) => {
@@ -11,7 +11,7 @@ module.exports = (program) => {
   }
 
   // Figure out which jobs are unsupported
-  var unsupportedJobs = program.jobs.filter((info) => !info.scraper);
+  const unsupportedJobs = program.jobs.filter((info) => !info.scraper);
   if (!unsupportedJobs.length) return program;
 
   // Unsupported URLs list
@@ -20,7 +20,7 @@ module.exports = (program) => {
   });
 
   // Supported sites list
-  var supportedSites = program.scrapers.map((s) => s.domain()).join(", ");
+  const supportedSites = program.scrapers.map((s) => s.domain()).join(", ");
   console.error(format("Make sure you are using online reader URLs from one or more of the following sites: %s", supportedSites));
   console.error(format("Request additional sites at %s", package.bugs.url));
 

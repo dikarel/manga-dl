@@ -1,64 +1,60 @@
-var parseHtml = require("fast-html-parser").parse;
-var dirname = require("path").dirname;
-var extname = require("path").extname;
-var format = require("util").format;
-var Promise = require("bluebird");
-var join = require("path").join;
-var os = require("os");
+const extname = require("path").extname;
+const format = require("util").format;
+const Promise = require("bluebird");
+const needle = require("needle");
 
-var tmpName = Promise.promisify(require("tmp").tmpName);
-var httpGet = Promise.promisify(require("needle").get);
-var mkdirp = Promise.promisify(require("mkdirp"));
+const fsStat = Promise.promisify(require("fs").stat);
+const httpHead = Promise.promisify(needle.head);
+const httpGet = Promise.promisify(needle.get);
 
-// Download pages listed in job.pageUrls; stores download paths in job.localPagePaths
+// Download pages; stores download paths in job.localPagePaths
 module.exports = (job) => {
-  var mapOptions = {
-    concurrency: job.parallelism
-  };
+  console.log(format("Downloading %s chapter %s... (%s pages)", job.seriesName, job.chapterNumber, job.totalPages));
 
-  console.log(format("Downloading %s chapter %s... (%s pages)", job.seriesName, job.chapterNumber, job.pageUrls.length));
-
-  return Promise.map(job.pageUrls, (url, i) =>
-      getImageUrl(job, url)
-      .then((imageUrl) => {
-        var getLocalPath = job.convertPagesToEpub ? getTmpPath : Promise.method(getLocalDirPath);
-        return getLocalPath(job, i + 1, imageUrl).then((localPath) =>
-          mkdirp(dirname(localPath))
-          .then(() => downloadImage(imageUrl, localPath))
-        );
-      }), mapOptions)
+  return Promise.each(zeroTo(job.totalPages - 1), (index) =>
+      job.getImageUrl(index)
+      .then((imageUrl) =>
+        job.generateLocalPath(index, extname(imageUrl).toLowerCase())
+        .then((localPath) =>
+          checkIfAlreadyDownloaded(imageUrl, localPath)
+          .then((alreadyDownloaded) => alreadyDownloaded ? localPath : downloadImage(imageUrl, localPath)))
+      ), {
+        concurrency: job.parallelism
+      })
     .then((localPagePaths) => {
       job.localPagePaths = localPagePaths;
       return job;
     });
 };
 
+// Returns file size (-1 if non-existent)
+function getFileSize(path) {
+  return fsStat(path)
+    .then((f) => f.size)
+    .error(() => -1);
+}
+
+// Generates an array of integers from 0 to upperBound (inclusive)
+function zeroTo(upperBound) {
+  return Array.from(Array(upperBound + 1).keys());
+}
+
+// Check whether or not an image has already been downloaded
+function checkIfAlreadyDownloaded(imageUrl, localPath) {
+  return Promise.all([getFileSize(localPath), httpHead(imageUrl)])
+    .spread((fileSize, res) => {
+      if (res.statusCode != 200) throw new Error(format("Failed to get filesize of %s (HTTP %s)", imageUrl, res.statusCode));
+      return (fileSize == parseInt(res.headers["content-length"]));
+    });
+}
+
 // Download image and save it locally; returns local path
 function downloadImage(imageUrl, localPath) {
-  var options = {
-    output: localPath
-  };
-
-  return httpGet(imageUrl, options)
+  return httpGet(imageUrl, {
+      output: localPath
+    })
     .then((res) => {
       if (res.statusCode != 200) throw new Error(format("Failed to download %s (HTTP %s)", imageUrl, res.statusCode));
       return localPath;
     });
-}
-
-// Download reader page to grab image URL
-function getImageUrl(job, pageUrl) {
-  return httpGet(pageUrl)
-    .then((res) => {
-      if (res.statusCode != 200) throw new Error(format("Failed to download %s (HTTP %s)", pageUrl, res.statusCode));
-      return job.scraper.imageUrl(parseHtml(res.body));
-    });
-}
-
-function getLocalDirPath(job, pageNumber, imageUrl) {
-  return join(job.seriesName, job.chapterNumber.toString(), format("page-%s%s", pageNumber.toString(), extname(imageUrl)));
-}
-
-function getTmpPath() {
-  return tmpName(os.tmpdir());
 }

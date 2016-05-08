@@ -1,22 +1,19 @@
-var extractPageInfo = require("../job/extractPageInfo");
-var downloadPages = require("../job/downloadPages");
-var convertPagesToEpub = require("../job/convertPagesToEpub");
-var convertEpubToMobi = require("../job/convertEpubToMobi");
-var Promise = require("bluebird");
+const extractPageInfo = require("../job/extractPageInfo");
+const downloadPages = require("../job/downloadPages");
+const convertPagesToEpub = require("../job/convertPagesToEpub");
+const convertEpubToMobi = require("../job/convertEpubToMobi");
+const planDownloads = require("../job/planDownloads");
+const Promise = require("bluebird");
 
-module.exports = (program) => Promise.each(program.jobs, (job) => {
-
-  // Default steps
-  var promise = extractPageInfo(job)
-    .then(downloadPages);
-
-  // Extra steps
-  if (job.convertPagesToEpub) promise = promise.then(convertPagesToEpub);
-  if (job.convertEpubToMobi) promise = promise.then(convertEpubToMobi);
-
-  return promise;
-}).then(() => {
-  // Success message
-  console.log("Done. Check your local directory for downloaded files");
-  return program;
-});
+// Runs all jobs to completion
+module.exports = (program) =>
+  Promise.each(program.jobs, (job) =>
+    extractPageInfo(job)
+    .then(planDownloads)
+    .then(downloadPages)
+    .then(job.convertPagesToEpub ? convertPagesToEpub : (j) => j)
+    .then(job.convertEpubToMobi ? convertEpubToMobi : (j) => j)
+  ).then(() => {
+    console.log("Done. Check your local directory for downloaded files");
+    return program;
+  });

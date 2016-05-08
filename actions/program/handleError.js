@@ -1,5 +1,5 @@
-var package = require("../../package");
-var format = require("util").format;
+const package = require("../../package");
+const format = require("util").format;
 
 // Display error messages (if any)
 module.exports = (err) => {

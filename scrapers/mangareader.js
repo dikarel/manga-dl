@@ -1,25 +1,22 @@
 module.exports = {
-  domain: () => {
-    return "mangareader.net";
-  },
+  domain: () =>
+    "mangareader.net",
 
-  acceptsUrl: (url) => {
-    return !!url.match(/^http\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i);
-  },
+  isAjax: () =>
+    false,
 
-  seriesName: (dom) => {
-    return dom.querySelector("#mangainfo h1").text.replace(/\s+\d+$/, "");
-  },
+  acceptsUrl: (url) =>
+    !!url.match(/^http\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i),
 
-  chapterNumber: (dom) => {
-    return parseInt(dom.querySelector("#mangainfo h1").text.match(/\d+$/)[0]);
-  },
+  seriesName: (dom) =>
+    dom.querySelector("#mangainfo h1").text.replace(/\s+\d+$/, ""),
 
-  pageUrls: (dom) => {
-    return dom.querySelectorAll("#pageMenu option").map((o) => "http://www.mangareader.net" + o.attributes.value);
-  },
+  chapterNumber: (dom) =>
+    parseInt(dom.querySelector("#mangainfo h1").text.match(/\d+$/)[0]),
 
-  imageUrl: (dom) => {
-    return dom.querySelector("#imgholder img").attributes.src;
-  }
+  pageUrls: (dom) =>
+    dom.querySelectorAll("#pageMenu option").map((o) => "http://www.mangareader.net" + o.attributes.value),
+
+  imageUrls: (dom) =>
+    [dom.querySelector("#imgholder img").attributes.src]
 };

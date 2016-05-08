@@ -1,11 +1,11 @@
-var Promise = require("bluebird");
-var join = require("path").join;
+const Promise = require("bluebird");
+const join = require("path").join;
 
-var readdir = Promise.promisify(require("fs").readdir);
+const readdir = Promise.promisify(require("fs").readdir);
 
 // Import scraper libs, placing them in program.scrapers
 module.exports = (program) => {
-  var scraperDir = join(__dirname, "..", "..", "scrapers");
+  const scraperDir = join(__dirname, "..", "..", "scrapers");
 
   return readdir(scraperDir)
     .then((jsFilenames) => {
