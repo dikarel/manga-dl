@@ -1,8 +1,10 @@
 {
   "shouldAcceptUrls": [
-    "http://mangapark.me/manga/up-and-out/s1/c93/1",
+    "http://mangapark.me/manga/up-and-out/s1/c93",
+    "http://mangapark.me/manga/up-and-out/s1/c93/",
     "http://mangapark.me/manga/up-and-out/s1/c93/2",
-    "https://mangapark.me/manga/up-and-out/s1/c93/2"
+    "https://mangapark.me/manga/up-and-out/s1/c93/2",
+    "https://mangapark.me/manga/up-and-out/s1/c93/2.html"
   ],
 
   "shouldRejectUrls": [
@@ -18,8 +20,8 @@
     "chapterNumber": 105,
     "totalPageUrls": 26,
     "totalImageUrls": 1,
-    "firstPageUrl": "http://www.mangapark.me/manga/all-that-we-hope-to-be/s5/c105/1",
-    "lastPageUrl": "http://www.mangapark.me/manga/all-that-we-hope-to-be/s5/c105/26",
+    "firstPageUrl": "http://mangapark.me/manga/all-that-we-hope-to-be/s5/c105/1",
+    "lastPageUrl": "http://mangapark.me/manga/all-that-we-hope-to-be/s5/c105/26",
     "firstImageUrl": "http://2.p.mpcdn.net/350712/759705/1.jpg",
     "lastImageUrl": "http://2.p.mpcdn.net/350712/759705/1.jpg"
   }]
