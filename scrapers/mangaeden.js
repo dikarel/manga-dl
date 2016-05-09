@@ -1,6 +1,6 @@
 module.exports = {
   domain: () =>
-    "www.mangaeden.com",
+    "mangaeden.com",
 
   isAjax: () =>
     false,

@@ -5,12 +5,16 @@ const join = require("path").join;
 
 const loadTestDefinitions = importLoadTestDefinitions();
 const testDefinitions = importTestDefinitions();
+const readme = loadReadme();
 
 module.exports =
   loadTestConfig()
   .map(loadScraper)
   .map(loadSampleDoms)
-  .map((conf) => Object.assign(createTestSuite(conf, testDefinitions), createLoadTestSuite(conf, loadTestDefinitions)))
+  .map(conf => Object.assign(conf, {
+    readme: readme
+  }))
+  .map(conf => Object.assign(createTestSuite(conf, testDefinitions), createLoadTestSuite(conf, loadTestDefinitions)))
   .reduce(combineDict);
 
 function loadTestConfig() {
@@ -52,6 +56,10 @@ function importLoadTestDefinitions() {
   return readdir(join(__dirname, "testDefinitions", "shouldLoad"))
     .filter((filename) => filename.match(/\.js$/i))
     .map((filename) => require("./testDefinitions/shouldLoad/" + filename));
+}
+
+function loadReadme() {
+  return readFile(join(__dirname, "..", "readme.md"), "utf8");
 }
 
 function createTestSuite(conf, testDefinitions) {

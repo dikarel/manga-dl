@@ -6,7 +6,7 @@ module.exports = {
     false,
 
   acceptsUrl: (url) =>
-    !!url.match(/^https?\:\/\/www\.mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i),
+    !!url.match(/^https?\:\/\/(www\.)?mangareader\.net\/([a-z0-9-]+)\/\d+(\/\d+)?$/i),
 
   seriesName: (dom) =>
     dom.querySelector("#mangainfo h1").text.replace(/\s+\d+$/, ""),
