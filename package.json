@@ -12,7 +12,8 @@
     "mangareader",
     "mangafox",
     "dynasty",
-    "scans"
+    "scans",
+    "mangaeden"
   ],
   "author": "Darius I. Karel <me@dikarel.com>",
   "dependencies": {
