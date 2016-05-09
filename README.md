@@ -6,7 +6,7 @@ Download manga from popular scanlation sites via command line
 2. mangaeden.com ([sample reader url](http://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/6/1/))
 3. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
 4. mangapanda.com ([sample reader url](http://www.mangapanda.com/kyou-no-yuiko-san/8/2))
-5. mangapark.me [sample reader url](http://mangapark.me/manga/umineko-no-naku-koro-ni-tsubasa/s5/c5/1))
+5. mangapark.me ([sample reader url](http://mangapark.me/manga/umineko-no-naku-koro-ni-tsubasa/s5/c5/1))
 6. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
 7. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
 
