@@ -3,13 +3,14 @@ const readFile = require("fs").readFileSync;
 const readdir = require("fs").readdirSync;
 const join = require("path").join;
 
+const loadTestDefinitions = importLoadTestDefinitions();
 const testDefinitions = importTestDefinitions();
 
 module.exports =
   loadTestConfig()
   .map(loadScraper)
   .map(loadSampleDoms)
-  .map((conf) => createTestSuite(conf, testDefinitions))
+  .map((conf) => Object.assign(createTestSuite(conf, testDefinitions), createLoadTestSuite(conf, loadTestDefinitions)))
   .reduce(combineDict);
 
 function loadTestConfig() {
@@ -32,9 +33,12 @@ function loadScraper(conf) {
 function loadSampleDoms(conf) {
   return Object.assign(conf, {
     shouldLoad: conf.data.shouldLoad
-      .map((loadConf) => parseHtml(readFile(join(__dirname, "samples", loadConf.source), "utf8"), {
-        script: true
-      }))
+      .map((loadConf) =>
+        Object.assign(loadConf, {
+          dom: parseHtml(readFile(join(__dirname, "samples", loadConf.source), "utf8"), {
+            script: true
+          })
+        }))
   });
 }
 
@@ -44,11 +48,29 @@ function importTestDefinitions() {
     .map((filename) => require("./testDefinitions/" + filename));
 }
 
+function importLoadTestDefinitions() {
+  return readdir(join(__dirname, "testDefinitions", "shouldLoad"))
+    .filter((filename) => filename.match(/\.js$/i))
+    .map((filename) => require("./testDefinitions/shouldLoad/" + filename));
+}
+
 function createTestSuite(conf, testDefinitions) {
   var testSuite = {};
 
   testDefinitions.forEach((def) => {
     testSuite[def.name(conf)] = def.createTest(conf);
+  });
+
+  return testSuite;
+}
+
+function createLoadTestSuite(conf, loadTestDefinitions) {
+  var testSuite = {};
+
+  conf.shouldLoad.forEach((loadConf) => {
+    loadTestDefinitions.forEach((def) => {
+      testSuite[def.name(conf, loadConf)] = def.createTest(conf, loadConf);
+    });
   });
 
   return testSuite;

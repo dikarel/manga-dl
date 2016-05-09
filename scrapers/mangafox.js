@@ -5,16 +5,16 @@ module.exports = {
   isAjax: () =>
     false,
 
-  acceptsUrl: url =>
-    !!url.match(/^http\:\/\/(www\.)?mangafox\.me\/manga\/([a-z0-9_]+)(\/v\d+)?\/c\d+\/?(\d+\.html)?$/i),
+  acceptsUrl: (url) =>
+    !!url.match(/^https?\:\/\/(www\.)?mangafox\.me\/manga\/([a-z0-9_]+)(\/v\d+)?\/c\d+\/?(\d+\.html)?$/i),
 
-  seriesName: dom =>
+  seriesName: (dom) =>
     dom.querySelector("#series h1").text.replace(/\s+\d+$/, ""),
 
-  chapterNumber: dom =>
+  chapterNumber: (dom) =>
     parseInt(dom.querySelector("#series h1").text.match(/\d+$/)[0]),
 
-  pageUrls: dom => {
+  pageUrls: (dom) => {
     var urlTemplate = dom.querySelector("#tip a").attributes.href.replace(/\d+\.html$/, "");
 
     // Only select numeric page options

@@ -1,0 +1,26 @@
+{
+  "shouldAcceptUrls": [
+    "http://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/6/1/",
+    "http://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/6/22/",
+    "http://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/6"
+  ],
+
+  "shouldRejectUrls": [
+    "http://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/",
+    "http://www.mangaeden.com"
+  ],
+
+  "shouldBeAjax": false,
+
+  "shouldLoad": [{
+    "source": "mangaeden.html",
+    "seriesName": "I The Female Robot",
+    "chapterNumber": 10,
+    "totalPageUrls": 23,
+    "totalImageUrls": 1,
+    "firstPageUrl": "http://www.mangaeden.com/en/en-manga/i-the-female-robot/10/1/",
+    "lastPageUrl": "http://www.mangaeden.com/en/en-manga/i-the-female-robot/10/23/",
+    "firstImageUrl": "http://cdn.mangaeden.com/mangasimg/4a/4a0d6d7ad18570b858f87c2d1c165b716e39e813bc91067f0f223e3f.jpg",
+    "lastImageUrl": "http://cdn.mangaeden.com/mangasimg/4a/4a0d6d7ad18570b858f87c2d1c165b716e39e813bc91067f0f223e3f.jpg"
+  }]
+}

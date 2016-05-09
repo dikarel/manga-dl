@@ -6,7 +6,7 @@ module.exports = {
     true,
 
   acceptsUrl: (url) =>
-    url.match(/^http\:\/\/(www\.)?dynasty-scans\.com\/chapters\/([a-z0-9_]+)(#.+)?$/i),
+    url.match(/^https?\:\/\/(www\.)?dynasty-scans\.com\/chapters\/([a-z0-9_]+)(#.+)?$/i),
 
   seriesName: (dom) =>
     dom.querySelector("#chapter-title").text.replace(/\s+(ch\d+\s+)?by.+$/, ""),

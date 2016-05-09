@@ -1,6 +1,13 @@
 # manga-dl
 Download manga from popular scanlation sites via command line
 
+### Supported sites
+1. dynasty-scans.com ([sample reader url](http://dynasty-scans.com/chapters/girls_monochrome_ch01#3))
+2. mangaeden.com ([sample reader url](https://www.mangaeden.com/en/en-manga/shingeki-no-kyojin/6/1/))
+3. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
+4. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
+5. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
+
 ## Install
 Download from [npm](http://www.npmjs.com/package/manga-dl).
 
@@ -16,12 +23,6 @@ Type the command `manga-dl <reader url>`. A local directory will be created, and
     Done. Check your local directory for downloaded files
 
 Note that the URL has to be that of an online viewer (e.g. [http://www.mangareader.net/world-trigger/142](http://www.mangareader.net/world-trigger/142)); this is the URL where you actually see and flip through the pages.
-
-### Supported sites
-1. dynasty-scans.com ([sample reader url](http://dynasty-scans.com/chapters/girls_monochrome_ch01#3))
-2. mangafox.me ([sample reader url](http://mangafox.me/manga/tonari_no_kashiwagi_san/v07/c072/1.html))
-3. mangareader.net ([sample reader url](http://www.mangareader.net/world-trigger/141))
-4. Not on this list? [request here](https://github.com/dikarel/manga-dl/issues)
 
 ## Download multiple chapters
 Type the command `manga-dl <reader url 1> <reader url 2> ...`. Chapters will be downloaded in the specified order.

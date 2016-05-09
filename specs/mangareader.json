@@ -19,10 +19,10 @@
     "source": "mangareader.html",
     "seriesName": "Red String (Dong Bi)",
     "chapterNumber": 1,
-    "pageUrls": 34,
-    "loadImageUrls": 1,
+    "totalPageUrls": 34,
+    "totalImageUrls": 1,
     "firstPageUrl": "http://www.mangareader.net/red-string-dong-bi/1",
-    "lastPageUrl": "http://www.mangareader.net/red-string-dong-bi/34",
+    "lastPageUrl": "http://www.mangareader.net/red-string-dong-bi/1/34",
     "firstImageUrl": "http://i9.mangareader.net/red-string-dong-bi/1/red-string-dong-bi-5086327.jpg",
     "lastImageUrl": "http://i9.mangareader.net/red-string-dong-bi/1/red-string-dong-bi-5086327.jpg"
   }]

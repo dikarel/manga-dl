@@ -14,24 +14,24 @@
   "shouldBeAjax": true,
 
   "shouldLoad": [{
-    "source": "dynastyscans-1.html",
+    "source": "dynasty-scans-1.html",
     "seriesName": "A Room For Two",
     "chapterNumber": 6,
-    "pageUrls": 0,
-    "loadImageUrls": 1,
+    "totalPageUrls": 0,
+    "totalImageUrls": 12,
     "firstPageUrl": null,
     "lastPageUrl": null,
     "firstImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/674/01.png",
-    "lastImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/674/12.png"
+    "lastImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/674/credits.jpg"
   }, {
-    "source": "dynastyscans-2.html",
+    "source": "dynasty-scans-2.html",
     "seriesName": "NAMANIEDO-NATSU",
     "chapterNumber": -1,
-    "pageUrls": 0,
-    "loadImageUrls": 1,
+    "totalPageUrls": 0,
+    "totalImageUrls": 31,
     "firstPageUrl": null,
     "lastPageUrl": null,
-    "firstImageUrl": "http://z.mfcdn.net/store/manga/8715/07-072.0/compressed/q001.jpg",
-    "lastImageUrl": "http://z.mfcdn.net/store/manga/8715/07-072.0/compressed/q001.jpg"
+    "firstImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/659/0001.png",
+    "lastImageUrl": "http://www.dynasty-scans.com/system/releases/000/015/659/Yuri-Bot%20Scans%20Credits.jpg"
   }]
 }

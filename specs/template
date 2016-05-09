@@ -1,0 +1,21 @@
+{
+  "shouldAcceptUrls": [
+  ],
+
+  "shouldRejectUrls": [
+  ],
+
+  "shouldBeAjax": null,
+
+  "shouldLoad": [{
+    "source": null,
+    "seriesName": null,
+    "chapterNumber": null,
+    "pageUrls": null,
+    "loadImageUrls": null,
+    "firstPageUrl": null,
+    "lastPageUrl": null,
+    "firstImageUrl": null,
+    "lastImageUrl": null
+  }]
+}
