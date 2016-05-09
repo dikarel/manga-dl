@@ -45,10 +45,14 @@ function zeroTo(upperBound) {
 
 // Check whether or not an image has already been downloaded
 function checkIfAlreadyDownloaded(imageUrl, localPath) {
-  return Promise.all([getFileSize(localPath), httpHead(imageUrl)])
-    .spread((fileSize, res) => {
-      if (res.statusCode != 200) throw new Error(format("Failed to get filesize of %s (HTTP %s)", imageUrl, res.statusCode));
-      return (fileSize == parseInt(res.headers["content-length"]));
+  return getFileSize(localPath)
+    .then((fileSize) => {
+      if (fileSize == -1) return false;
+      return httpHead(imageUrl)
+        .then((res) => {
+          if (res.statusCode != 200) throw new Error(format("Failed to get filesize of %s (HTTP %s)", imageUrl, res.statusCode));
+          return (fileSize == parseInt(res.headers["content-length"]));
+        });
     });
 }
 
