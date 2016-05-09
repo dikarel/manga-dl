@@ -1,0 +1,25 @@
+{
+  "shouldAcceptUrls": [
+    "http://www.mangapanda.com/all-that-we-hope-to-be/30",
+    "http://www.mangapanda.com/all-that-we-hope-to-be/30/3"
+  ],
+
+  "shouldRejectUrls": [
+    "http://www.mangapanda.com/all-that-we-hope-to-be",
+    "http://www.mangapanda.com"
+  ],
+
+  "shouldBeAjax": false,
+
+  "shouldLoad": [{
+    "source": "mangapanda.html",
+    "seriesName": "Kyou no Yuiko-san",
+    "chapterNumber": 1,
+    "totalPageUrls": 18,
+    "totalImageUrls": 1,
+    "firstPageUrl": "http://www.mangapanda.com/kyou-no-yuiko-san/1",
+    "lastPageUrl": "http://www.mangapanda.com/kyou-no-yuiko-san/1/18",
+    "firstImageUrl": "http://i3.mangapanda.com/kyou-no-yuiko-san/1/kyou-no-yuiko-san-4475807.jpg",
+    "lastImageUrl": "http://i3.mangapanda.com/kyou-no-yuiko-san/1/kyou-no-yuiko-san-4475807.jpg"
+  }]
+}
