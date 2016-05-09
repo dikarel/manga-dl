@@ -3,6 +3,7 @@ const planJobs = require("./actions/program/planJobs");
 const validateJobs = require("./actions/program/validateJobs");
 const executeJobs = require("./actions/program/executeJobs");
 const handleError = require("./actions/program/handleError");
+const validateTools = require("./actions/program/validateTools");
 const package = require("./package.json");
 const program = require("commander");
 const needle = require("needle");
@@ -25,5 +26,6 @@ needle.defaults({
 importScrapers(program)
   .then(planJobs)
   .then(validateJobs)
+  .then(validateTools)
   .then(executeJobs)
   .catch(handleError);
