@@ -1,5 +1,8 @@
 # manga-dl
+
 Download manga from popular scanlation sites via command line
+
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ### Supported sites
 1. dynasty-scans.com ([sample reader url](http://dynasty-scans.com/chapters/girls_monochrome_ch01#3))
