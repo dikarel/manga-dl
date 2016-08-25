@@ -4,6 +4,7 @@ Download manga from popular scanlation sites via command line. Works with NodeJS
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/dikarel/manga-dl.svg?branch=master)](https://travis-ci.org/dikarel/manga-dl)
+[![codecov](https://codecov.io/gh/dikarel/manga-dl/branch/master/graph/badge.svg)](https://codecov.io/gh/dikarel/manga-dl)
 
 ### Supported sites
 
