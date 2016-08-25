@@ -1,12 +1,12 @@
-const package = require("../../package");
-const format = require("util").format;
+const packageJson = require('../../package')
+const format = require('util').format
 
 // Display error messages (if any)
 module.exports = (err) => {
-  if (!err) return;
+  if (!err) return
 
-  console.error(err.stack);
-  console.error(format("Report issues at %s", package.bugs.url));
+  console.error(err.stack)
+  console.error(format('Report issues at %s', packageJson.bugs.url))
 
-  process.exit(1);
-};
+  process.exit(1)
+}

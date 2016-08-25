@@ -34,7 +34,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nodeunit specs/index.js --reporter minimal"
+    "test": "nodeunit specs/index.js --reporter minimal",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",

@@ -1,23 +1,16 @@
 module.exports = {
-  domain: () =>
-    "mangapanda.com",
+  domain: () => 'mangapanda.com',
 
-  isAjax: () =>
-    false,
+  isAjax: () => false,
 
-  acceptsUrl: (url) =>
-    url.match(/^https?\:\/\/(www\.)?mangapanda\.com\/([a-z0-9-]+)\/\d+(\/\d+)?$/i),
+  acceptsUrl: (url) => url.match(/^https?:\/\/(www\.)?mangapanda\.com\/([a-z0-9-]+)\/\d+(\/\d+)?$/i),
 
-  seriesName: (dom) =>
-    dom.querySelector("#mangainfo h1").text.replace(/\s+\d+$/, ""),
+  seriesName: (dom) => dom.querySelector('#mangainfo h1').text.replace(/\s+\d+$/, ''),
 
-  chapterNumber: (dom) =>
-    parseInt(dom.querySelector("#mangainfo h1").text.match(/\s+(\d+)$/, "")[1]),
+  chapterNumber: (dom) => parseInt(dom.querySelector('#mangainfo h1').text.match(/\s+(\d+)$/, '')[1]),
 
-  pageUrls: (dom) =>
-    dom.querySelectorAll("#pageMenu option")
-    .map(o => "http://www.mangapanda.com" + o.attributes.value),
+  pageUrls: (dom) => dom.querySelectorAll('#pageMenu option')
+    .map(o => 'http://www.mangapanda.com' + o.attributes.value),
 
-  imageUrls: (dom) =>
-    [dom.querySelector("#img").attributes.src]
-};
+  imageUrls: (dom) => [dom.querySelector('#img').attributes.src]
+}

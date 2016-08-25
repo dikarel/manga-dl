@@ -7,16 +7,16 @@ module.exports = (program) => {
       return {
         url: url,
         scraper: program.scrapers.filter((s) => s.acceptsUrl(url))[0],
-        convertPagesToEpub: (program.format == "mobi" || program.format == "epub"),
-        convertEpubToMobi: (program.format == "mobi"),
+        convertPagesToEpub: (program.format === 'mobi' || program.format === 'epub'),
+        convertEpubToMobi: (program.format === 'mobi'),
         parallelism: program.parallelism
-      };
-    });
+      }
+    })
 
-  return program;
-};
+  return program
+}
 
-function sanitizeUrl(orig) {
-  if (!orig) return orig;
-  return (orig.match(/https?\:\/\//i) ? orig : "http://" + orig).trim();
+function sanitizeUrl (orig) {
+  if (!orig) return orig
+  return (orig.match(/https?:\/\//i) ? orig : 'http://' + orig).trim()
 }
