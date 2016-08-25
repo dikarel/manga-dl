@@ -1,6 +1,6 @@
 # manga-dl
 
-Download manga from popular scanlation sites via command line. Works with NodeJS 4, 5, and 6.
+Download manga from popular scanlation sites via command line
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/dikarel/manga-dl.svg?branch=master)](https://travis-ci.org/dikarel/manga-dl)
@@ -47,6 +47,12 @@ Type the command `manga-dl <reader url 1> <reader url 2> ...`. Chapters will be 
     Extracting info from http://www.mangareader.net/world-trigger/140...
     Downloading World Trigger chapter 140... (19 pages)
     Done. Check your local directory for downloaded files
+
+## Compatibility
+
+- Works with NodeJS version 4 and above; io.js not supported
+- I've only tested this on the Mac, but in theory should work with Windows as
+  well as Linux
 
 ## License
 
