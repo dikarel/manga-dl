@@ -12,3 +12,12 @@ after_success:
 install:
   - npm install -g codecov
   - npm install
+
+deploy:
+  provider: npm
+  email: me@dikarel.com
+  api_key:
+    secure: vH+7NYFEOBVGVSGf5ZN3vlBPMyntqglB5gmJRWqMCL00HJcfNxM/SWsPyB/0DYu7Q5/Fs4ZqL8g/+MHu81+RmGoG5HXtbnLqd70fWoXc5ZjlQdK+by7MAVpJyHji1HUpYvSLKZxGMAR12fFrQ9amQ8l+ylm/tRjqUELlPM1mOPI178NpWxyay4OIaEy240pmtbAahZ+OkyHA+8jqgdVulpqO9aRmqTcbTprzDa8IRrZDSOJ6Yihpb3kS8bnBzW0QkAcrPtGKahpuU+oOExVWoRWtNTXdWVgbdpUzqXLCEtiqZscy0yjEIRv12iTo/G6rqzmlOCuBNd9bbus1EOFQyikREBc50P1VI295BfGC6rUrJHb906xdzdxcvj80i80B4yq1G8UdNQO3aYKyFiAmBQ+l729NHgJLhffwR2tLUVMMnPJpzuxeVeDl9huKOsDxRkE9FHl0SrusZ7RQfc075rcteq+Vw8vwNC8cx56bQSLt4BtJHTAtHwMLHvukk+8lN7HbU2QQG5rSfpTcriWaTwsgzXGz/0GkfMrVxgFnWWGvhqwneMRBerewH6J+lxZYJKX/OuqvJb6N7XcRiSTjSrE3/H3JzXBLMN6b4spDUcMuGrJwY58d6jnzbFQAW7W6tdMjQyqa3p8H2Rh84MK/KHhjhYV9VMMD7ZZ+KTTcDEs=
+  on:
+    repo: dikarel/manga-dl
+    branch: master
