@@ -1,0 +1,4 @@
+coverage
+specs
+.travis.yml
+.DS_Store
