@@ -1,6 +1,6 @@
 # manga-dl
 
-Download manga from popular scanlation sites via command line
+Download manga from popular scanlation sites via command line. Works with NodeJS 4, 5, and 6.
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/dikarel/manga-dl.svg?branch=master)](https://travis-ci.org/dikarel/manga-dl)
