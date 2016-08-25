@@ -1,4 +1,5 @@
 node_modules
 references
+coverage
 .DS_Store
 *.log

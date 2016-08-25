@@ -27,12 +27,13 @@
   },
   "devDependencies": {
     "better-assert": "^1.0.2",
+    "istanbul": "^0.4.5",
     "nodeunit": "^0.9.1",
     "standard": "^8.0.0"
   },
   "main": "index.js",
   "scripts": {
-    "test": "standard && nodeunit specs/index.js --reporter minimal"
+    "test": "standard && istanbul cover nodeunit -- specs/index.js --reporter minimal"
   },
   "repository": {
     "type": "git",

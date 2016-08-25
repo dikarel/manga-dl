@@ -8,3 +8,7 @@ node_js:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+install:
+  - npm install -g codecov
+  - npm install
