@@ -26,8 +26,9 @@
     "tmp": "0.0.28"
   },
   "devDependencies": {
+    "better-assert": "^1.0.2",
     "nodeunit": "^0.9.1",
-    "better-assert": "^1.0.2"
+    "standard": "^8.0.0"
   },
   "main": "index.js",
   "directories": {
