@@ -11,9 +11,7 @@ module.exports =
   loadTestConfig()
     .map(loadScraper)
     .map(loadSampleDoms)
-    .map(conf => Object.assign(conf, {
-      readme: readme
-    }))
+    .map(conf => Object.assign(conf, {readme: readme}))
     .map(conf => Object.assign(createTestSuite(conf, testDefinitions), createLoadTestSuite(conf, loadTestDefinitions)))
     .reduce(combineDict)
 
