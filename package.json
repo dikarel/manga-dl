@@ -1,6 +1,6 @@
 {
   "name": "manga-dl",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "Download manga from popular scanlation sites via command line",
   "keywords": [
     "manga",

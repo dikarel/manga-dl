@@ -21,6 +21,12 @@ needle.defaults({
   follow_max: 3
 })
 
+// Ask for feedback
+console.log()
+console.log('Take a minute to improve manga-dl')
+console.log('Answer 4 questions at https://goo.gl/forms/n1SjBAcilIRi50D22')
+console.log()
+
 // Run actions
 importScrapers(program)
   .then(planJobs)
