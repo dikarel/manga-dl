@@ -5,7 +5,7 @@ const join = require('path').join
 const os = require('os')
 
 const tmpName = Promise.promisify(require('tmp').tmpName)
-const httpGet = Promise.promisify(require('needle').get)
+const httpGet = Promise.promisify(require('cloudscraper').get)
 const mkdirp = Promise.promisify(require('mkdirp'))
 
 // Plan downloads based on extracted info (by selecting correct strategies)
@@ -24,7 +24,9 @@ function getTmpPath () {
 function getImageUrlFromPageReader (index) {
   return httpGet(this.pageUrls[index]).then((res) => {
     if (res.statusCode !== 200) throw new Error(format('Failed to download %s (HTTP %s)', this.pageUrls[index], res.statusCode))
-    return this.scraper.imageUrls(parseHtml(res.body))[0]
+    let imageUrls = this.scraper.imageUrls(parseHtml(res.body.toString('utf8')));
+    console.log("getImageUrlFromPageReader", imageUrls)
+    return imageUrls[0]
   })
 }
 

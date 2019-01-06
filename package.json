@@ -19,6 +19,7 @@
   "author": "Darius I. Karel <me@dikarel.com>",
   "dependencies": {
     "bluebird": "^3.3.5",
+    "cloudscraper": "^2.0.0",
     "commander": "^2.9.0",
     "fast-html-parser": "^1.0.1",
     "mkdirp": "^0.5.1",
