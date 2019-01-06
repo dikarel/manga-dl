@@ -2,7 +2,7 @@ const parseHtml = require('fast-html-parser').parse
 const format = require('util').format
 const Promise = require('bluebird')
 
-const httpGet = Promise.promisify(require('needle').get)
+const httpGet = Promise.promisify(require('cloudscraper').get)
 
 // Get chapter metadata; places them in job.seriesName, job.chapterNumber, job.pageUrls
 module.exports = (job) => {
@@ -12,7 +12,7 @@ module.exports = (job) => {
   return httpGet(job.url).then((res) => {
     if (res.statusCode !== 200) throw new Error(format('Failed to download %s (HTTP %s)', job.url, res.statusCode))
 
-    const dom = parseHtml(res.body, {
+    const dom = parseHtml(res.body.toString('utf8'), {
       script: true
     })
 

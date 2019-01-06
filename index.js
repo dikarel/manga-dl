@@ -5,7 +5,7 @@ const executeJobs = require('./actions/program/executeJobs')
 const handleError = require('./actions/program/handleError')
 const packageJson = require('./package.json')
 const program = require('commander')
-const needle = require('needle')
+//const needle = require('cloudscraper')
 
 // Metadata
 program
@@ -17,9 +17,9 @@ program
   .parse(process.argv)
 
 // HTTP settings
-needle.defaults({
+/*needle.defaults({
   follow_max: 3
-})
+})*/
 
 // Ask for feedback
 console.log()

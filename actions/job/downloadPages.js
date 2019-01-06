@@ -1,11 +1,12 @@
 const extname = require('path').extname
 const format = require('util').format
 const Promise = require('bluebird')
-const needle = require('needle')
+const cloudscraper = require('cloudscraper')
 
-const fsStat = Promise.promisify(require('fs').stat)
-const httpHead = Promise.promisify(needle.head)
-const httpGet = Promise.promisify(needle.get)
+const fs = require('fs')
+const fsStat = Promise.promisify(fs.stat)
+//const httpHead = Promise.promisify(needle.head)
+const httpGet = Promise.promisify(cloudscraper.get)
 
 // Download pages; stores download paths in job.localPagePaths
 module.exports = (job) => {
@@ -17,8 +18,7 @@ module.exports = (job) => {
 
   return Promise.each(zeroTo(job.totalPages - 1), (index) => job.getImageUrl(index)
     .then((imageUrl) => job.generateLocalPath(index, extname(imageUrl).toLowerCase())
-      .then((localPath) => checkIfAlreadyDownloaded(imageUrl, localPath)
-        .then((alreadyDownloaded) => alreadyDownloaded ? localPath : downloadImage(imageUrl, localPath)))
+      .then((localPath) => downloadImage(imageUrl, localPath))
   ), {
     concurrency: job.parallelism
   })
@@ -41,7 +41,7 @@ function zeroTo (upperBound) {
 }
 
 // Check whether or not an image has already been downloaded
-function checkIfAlreadyDownloaded (imageUrl, localPath) {
+/*function checkIfAlreadyDownloaded (imageUrl, localPath) {
   return getFileSize(localPath)
     .then((fileSize) => {
       if (fileSize === -1) return false
@@ -51,15 +51,17 @@ function checkIfAlreadyDownloaded (imageUrl, localPath) {
           return (fileSize === parseInt(res.headers['content-length']))
         })
     })
-}
+}*/
 
 // Download image and save it locally; returns local path
-function downloadImage (imageUrl, localPath) {
-  return httpGet(imageUrl, {
-    output: localPath
-  })
+function downloadImage (imageUrl, localPath) {  
+ return httpGet(imageUrl)
     .then((res) => {
+      console.log("downloading", imageUrl)
       if (res.statusCode !== 200) throw new Error(format('Failed to download %s (HTTP %s)', imageUrl, res.statusCode))
-      return localPath
+      let st = fs.createWriteStream(localPath)
+      st.write(res.body)
+      st.end();
+      console.log("saved", localPath)
     })
 }
